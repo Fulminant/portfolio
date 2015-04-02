@@ -23,7 +23,7 @@ h2 {
 
 h3 {
   margin: 0;
-  color:rgb(44,62,80);
+  color:$dark-grey;
   @extend %heading3;
 }
 
@@ -125,7 +125,7 @@ h4 {
 .navbar.navbar-default {
   height: 66px;
   border-radius: initial;
-  background-color:rgb(44,62,80);
+  background-color: $dark-grey;
   border: none;
   margin-bottom: 0;
 }
@@ -133,7 +133,7 @@ h4 {
 .collapse.navbar-collapse {
   position: relative;
   &.in {
-    background-color: rgb(44,62,80);
+    background-color: $dark-grey;
   }
 }
 
@@ -145,17 +145,17 @@ h4 {
 
     &-toggle {
       margin-top: 15px;
-      background-color: rgb(231,76,60);
+      background-color: $orange;
       border: none;
       @include transition (opacity, .5s);
       &:focus,
       &:hover {
-        background-color: rgb(231,76,60);
+        background-color: $orange;
         opacity: .7;
         @include transition (opacity, .5s);
       }
       .icon-bar {
-        background-color: rgb(44,62,80);
+        background-color: $dark-grey;
       }
     }
 
@@ -163,7 +163,7 @@ h4 {
       li {
         a {
           padding:0;
-          color:rgb(92,128,164);
+          color:$dark-blue;
           text-transform: uppercase;
           @include transition (color, .5s);
           font-size: 1.1em;
@@ -188,7 +188,7 @@ h4 {
   width: 107px;
   border-radius: 4px;
   height: 38px;
-  background-color: rgb(231,76,60);
+  background-color: $orange;
   border: none;
   color: white;
   text-transform: uppercase;
@@ -235,7 +235,7 @@ h4 {
 .square {
   width: 78px;
   height: 78px;
-  background: rgb(229,229,229);
+  background: $light-grey;
   display: inline-block;
   @include transform(rotate(45deg));
   img {
@@ -284,7 +284,7 @@ h4 {
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
-  border-right: 50px solid rgb(242,242,242);
+  border-right: 50px solid $soft-grey;
   border-bottom: 50px solid transparent;
 }
 
@@ -312,7 +312,7 @@ h4 {
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
-  border-left: 50px solid rgb(242,242,242);
+  border-left: 50px solid $soft-grey;
   border-bottom: 50px solid transparent;
 }
 
@@ -325,6 +325,22 @@ h4 {
   border-bottom: 42px solid transparent;
   position: absolute;
   top: 8px;
+}
+
+/*---Our Skills---*/
+.our-skills {
+  position: relative;
+  width: 100%;
+  img {
+    height: 585px;
+    width: 100%;
+  }
+  #blured-image {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /*---Responsive---*/
