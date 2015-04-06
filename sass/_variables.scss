@@ -4,11 +4,18 @@ $dark-grey: rgb(44,62,80);
 $dark-blue: rgb(92,128,164);
 $light-grey: rgb(229,229,229);
 $soft-grey: rgb(242,242,242);
+$white-light-opacity: rgba(255,255,255, .7);
+$white-heavy-opacity: rgba(255,255,255, .1);
+$white: rgb(255,255,255);
 
 $font-head: "Open Sans", Helvetica, Arial, sans-serif;
 $font-text: Georgia, Helvetica, Arial;
 
 $font-size: 14px;
+
+$large: 1170px;
+$medium: 1000px;
+$small: 768px;
 
 %heading2 { font-size: 3.6em;}
 %heading3 { font-size: 2.125em;}

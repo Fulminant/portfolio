@@ -16,8 +16,6 @@ body {
 
 h2 {
   text-align: center;
-  margin-top: 1.2em;
-  margin-bottom: 0.8em;
   @extend %heading2;
 }
 
@@ -40,9 +38,9 @@ h4 {
 /*---Lines Logo---*/
 
 .lines-logo {
-  max-width: 50em;
+  max-width: 51em;
   width: 100%;
-  margin: 39px auto;
+  margin: 37px auto;
   hr {
     max-width: 323px;
     width: 46%;
@@ -61,19 +59,19 @@ h4 {
 }
 
 .first-line {
-  @include linear-gradient(to left, rgb(231,76,60), rgba(255,255,255, .7));
+  @include linear-gradient(to left, $orange, $white-light-opacity);
 }
 
 .second-line {
-  @include linear-gradient(to right, rgb(231,76,60), rgba(255,255,255, .7));
+  @include linear-gradient(to right, $orange, $white-light-opacity);
 }
 
 .first-line-white {
-  @include linear-gradient(to left, rgb(255,255,255), rgba(255,255,255, .1));
+  @include linear-gradient(to left, $white, $white-heavy-opacity);
 }
 
 .second-line-white {
-  @include linear-gradient(to right, rgb(255,255,255), rgba(255,255,255, .1));
+  @include linear-gradient(to right, $white, $white-heavy-opacity);
 }
 
 .lines-logo .second-line,
@@ -206,24 +204,27 @@ h4 {
 .about-us {
   h2 {
     color:$orange;
+    margin-top: 1.2em;
+    margin-bottom: 0.8em;
   }
   p {
     font-family: $font-text;
     font-style: italic;
     font-size: 1.5em;
-    margin: 14px 0 25px 0;
+    margin: 14px 0 24px 0;
     line-height: 25px;
   }
   a {
+    word-spacing: 4px;
     text-decoration: none;
     text-transform: uppercase;
     color:white;
     background-color: $orange;
-    padding: 10px 42px 10px 43px;
+    padding: 10px 39px 10px 40px;
     font-size: 1.2em;
     border-radius: 3px;
     display: inline-block;
-    margin:2.4em 0 4em 0;
+    margin:2.35em 0 4.1em 0;
     @include transition (color, .5s);
     &:hover {
       opacity: .7;
@@ -251,7 +252,7 @@ h4 {
   p {
     max-width: 18em;
     font-size: 1.1em;
-    margin: 10px auto;
+    margin: 12px auto;
     font-family: $font-head;
     font-style: initial;
     margin-bottom: 2em;
@@ -272,80 +273,93 @@ h4 {
   top: 30px;
 }
 
-
-.left {
-  position: relative;
-  display: inline-block;
-  top: 11px;
-  left: 16px;
-}
-
 .triangle {
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-right: 50px solid $soft-grey;
-  border-bottom: 50px solid transparent;
+  @include triangle-builder (right, 50px, $soft-grey);
 }
 
 .triangle-2 {
-  width: 0;
-  height: 0;
-  border-top: 42px solid transparent;
-  border-right: 42px solid white;
-  border-bottom: 42px solid transparent;
+  @include triangle-builder (right, 42px, $white);
   position: absolute;
   top: 8px;
   right: 0;
 }
 
-.right {
-  position: relative;
-  display: inline-block;
-  top: 11px;
-  right: 16px;
-  z-index: -1;
-}
-
-
 .triangle-3 {
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-left: 50px solid $soft-grey;
-  border-bottom: 50px solid transparent;
+  @include triangle-builder (left, 50px, $soft-grey);
 }
-
 
 .triangle-4 {
-  width: 0;
-  height: 0;
-  border-top: 42px solid transparent;
-  border-left: 42px solid white;
-  border-bottom: 42px solid transparent;
+  @include triangle-builder (left, 42px, $white);
   position: absolute;
   top: 8px;
 }
 
+.left-triangle {
+  @include side-triangle (left, 16px);
+}
+
+.right-triangle {
+  @include side-triangle (right, 16px);
+}
+
 /*---Our Skills---*/
+
 .our-skills {
   position: relative;
   width: 100%;
-  img {
-    height: 585px;
+  height: 585px;
+  .blurimage {
+    height: 100%;
     width: 100%;
-  }
-  #blured-image {
     position: absolute;
-    top: 0;
+    z-index: -1;
+  }
+  canvas {
     width: 100%;
     height: 100%;
   }
+  .blured-box {
+    width: 100%;
+  }
+  .content {
+    position: absolute;
+    width: 100%;
+  }
+  h2 {
+    color:$white;
+    margin-top: 1.45em;
+    margin-bottom: .84em;
+  }
+  .row {
+    margin-top:1.7em;
+  }
+  p {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    padding: 19px 10px 0 0;
+  }
+}
+
+.pie_progress {
+  position: relative;
+  @include transform-style (preserve-3d);
+  margin-bottom: 120px;
+}
+
+.pie_progress__number {
+  width: 100%;
+  position: absolute;
+  top: 37%;
+  left: -3px;
+  @include transform (translateY(-50%));
+  font-size:3.5em;
+  color:white;
 }
 
 /*---Responsive---*/
 
-@media (max-width: 1000px) {
+@media (max-width: $medium) {
   .navbar-nav {
     >li {
     margin-right: 3em;
@@ -355,10 +369,13 @@ h4 {
     right: -15px;
     width: 70px;
   }
+  .our-skills {
+    height: 1000px;
+  }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: $small) {
   .navbar-nav {
     >li {
     margin-right: 0;
@@ -378,4 +395,8 @@ h4 {
   .navbar.navbar-default {
     height: initial;
   }
+  .our-skills {
+    height: 1700px;
+  }
 }
+

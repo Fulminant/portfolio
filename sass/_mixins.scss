@@ -1,0 +1,23 @@
+@mixin triangle-builder ($side, $size, $color) {
+  width: 0;
+  height: 0;
+  border-top: $size solid transparent;
+  @if $side == "right" {
+    border-right: $size solid $color;
+  } @else if $side == "left" {
+    border-left: $size solid $color;
+  }
+  border-bottom: $size solid transparent;
+}
+
+@mixin side-triangle($side, $rate) {
+  position: relative;
+  display: inline-block;
+  top: 11px;
+  @if $side == "right" {
+    right: $rate;
+    z-index: -1;
+  } @else if $side == "left" {
+    left: $rate;
+  }
+}
